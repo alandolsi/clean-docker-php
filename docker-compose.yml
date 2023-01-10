@@ -10,7 +10,7 @@ services:
       - .:/app
 
   php:
-    image: php:7.4-fpm
+    image: php:8.2-fpm
     build: .conf/php/
     restart: always
     expose:
@@ -23,13 +23,13 @@ services:
     working_dir: /app
 
   phpunit:
-    image: php:7.4-fpm
+    image: php:8.2-fpm
     volumes:
       - .:/app
     working_dir: /app
 
   fpm:
-    image: php:7.4-fpm
+    image: php:8.2-fpm
     restart: always
     volumes:
       - .:/app
@@ -37,7 +37,7 @@ services:
   nginx:
     image: nginx:latest
     ports:
-      - 8080:80
+      - 8090:80
     volumes:
       - .:/app
       - ./var/log/nginx:/var/log/nginx
